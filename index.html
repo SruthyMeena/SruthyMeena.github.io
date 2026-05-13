@@ -6,24 +6,21 @@
   <title>Sruthy Meena — Scrum Master & Agile Delivery Lead</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --black:      #0c0c0c;
-      --off-black:  #131313;
-      --card:       #171717;
-      --card-inner: #1c1c1c;
-      --gold:       #C9A84C;
-      --gold-lt:    #E2C96A;
-      --gold-md:    #8B6E2E;
-      --gold-dim:   #3a2e14;
-      --white:      #F4EFE6;
-      --text:       #c8c0b2;
-      --muted:      #6e6558;
-      --serif: 'Cormorant Garamond', Georgia, serif;
-      --sans:  'DM Sans', system-ui, sans-serif;
+      --black:     #0e0e0e;
+      --surface:   #161616;
+      --card:      #1e1e1e;
+      --border:    #2a2a2a;
+      --gold:      #c8a44a;
+      --gold-dim:  #7a6128;
+      --white:     #f0ece4;
+      --text:      #b8b2a8;
+      --muted:     #6a6560;
+      --font:      'Inter', system-ui, sans-serif;
     }
 
     html { scroll-behavior: smooth; }
@@ -31,268 +28,511 @@
     body {
       background: var(--black);
       color: var(--text);
-      font-family: var(--sans);
-      font-weight: 300;
-      line-height: 1.75;
+      font-family: var(--font);
       font-size: 16px;
+      font-weight: 400;
+      line-height: 1.7;
       -webkit-font-smoothing: antialiased;
     }
 
-    /* NAV */
+    /* ── NAV ── */
     nav {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
       display: flex; align-items: center; justify-content: space-between;
-      padding: 1.1rem 4rem;
-      background: rgba(12,12,12,0.94);
-      backdrop-filter: blur(14px);
-      border-bottom: 1px solid var(--gold-dim);
+      padding: 0 4rem;
+      height: 60px;
+      background: rgba(14,14,14,0.96);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
     }
-    .nav-brand {
-      font-family: var(--serif);
-      font-size: 1.05rem;
-      color: var(--gold);
-      letter-spacing: 0.04em;
+    .nav-name {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--white);
       text-decoration: none;
     }
-    .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+    .nav-links {
+      display: flex; gap: 0; list-style: none;
+    }
     .nav-links a {
+      display: block;
+      padding: 0 1.25rem;
+      height: 60px;
+      line-height: 60px;
+      font-size: 13px;
+      font-weight: 500;
       color: var(--muted);
       text-decoration: none;
-      font-size: 0.75rem;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      transition: color 0.2s;
+      letter-spacing: 0.02em;
+      border-left: 1px solid var(--border);
+      transition: color 0.15s, background 0.15s;
     }
-    .nav-links a:hover { color: var(--gold); }
+    .nav-links a:hover {
+      color: var(--white);
+      background: var(--surface);
+    }
 
-    /* HERO */
+    /* ── HERO ── */
     #hero {
       min-height: 100vh;
-      padding: 9rem 4rem 5rem;
       display: grid;
-      grid-template-columns: 1fr 420px;
-      gap: 5rem;
+      grid-template-columns: 1fr 400px;
+      gap: 6rem;
       align-items: center;
-      position: relative;
-      overflow: hidden;
+      padding: 8rem 4rem 5rem;
     }
-    #hero::before {
-      content: '';
-      position: absolute; top: 0; right: 0; bottom: 0; width: 55%;
-      background: radial-gradient(ellipse 80% 80% at 90% 40%, rgba(201,168,76,0.055) 0%, transparent 70%);
-      pointer-events: none;
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 2rem;
     }
-    .hero-text { position: relative; z-index: 1; }
-    .eyebrow {
-      display: flex; align-items: center; gap: 0.75rem;
-      font-size: 0.7rem; letter-spacing: 0.18em; text-transform: uppercase;
-      color: var(--gold); margin-bottom: 1.4rem;
+    .badge-dot {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--gold);
+      flex-shrink: 0;
     }
-    .eyebrow::before { content: ''; width: 2rem; height: 1px; background: var(--gold); flex-shrink: 0; }
+
     h1 {
-      font-family: var(--serif);
-      font-size: clamp(2.6rem, 4.5vw, 4rem);
-      font-weight: 600; color: var(--white);
-      line-height: 1.15; margin-bottom: 1.6rem; letter-spacing: -0.01em;
+      font-size: clamp(2.2rem, 4vw, 3.2rem);
+      font-weight: 600;
+      color: var(--white);
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+      margin-bottom: 1.5rem;
     }
-    h1 em { color: var(--gold); font-style: italic; }
+    h1 span { color: var(--gold); }
+
     .hero-desc {
-      font-size: 1rem; color: var(--muted);
-      max-width: 500px; margin-bottom: 2.5rem; line-height: 1.85;
+      font-size: 17px;
+      color: var(--text);
+      line-height: 1.8;
+      max-width: 480px;
+      margin-bottom: 2.5rem;
     }
-    .cta-row { display: flex; gap: 1rem; flex-wrap: wrap; }
+
+    .btn-row { display: flex; gap: 12px; flex-wrap: wrap; }
+
     .btn {
-      display: inline-block; padding: 0.72rem 2rem;
-      font-family: var(--sans); font-size: 0.75rem;
-      letter-spacing: 0.1em; text-transform: uppercase;
-      text-decoration: none; font-weight: 500; transition: all 0.2s;
+      display: inline-block;
+      padding: 0 1.75rem;
+      height: 44px;
+      line-height: 44px;
+      font-family: var(--font);
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      text-decoration: none;
+      transition: all 0.15s;
+      white-space: nowrap;
     }
-    .btn-gold { background: var(--gold); color: var(--black); }
-    .btn-gold:hover { background: var(--gold-lt); }
-    .btn-outline { border: 1px solid var(--gold-dim); color: var(--gold); }
-    .btn-outline:hover { border-color: var(--gold); background: rgba(201,168,76,0.07); }
+    .btn-primary {
+      background: var(--gold);
+      color: #0e0e0e;
+    }
+    .btn-primary:hover { background: #d9b55a; }
+    .btn-secondary {
+      border: 1px solid var(--border);
+      color: var(--text);
+    }
+    .btn-secondary:hover { border-color: var(--muted); color: var(--white); }
 
-    .hero-right { position: relative; z-index: 1; }
-    .photo-ring {
-      width: 240px; height: 240px; border-radius: 50%; overflow: hidden;
-      border: 1px solid var(--gold-dim); margin: 0 auto 2.5rem;
-      box-shadow: 0 0 0 6px rgba(201,168,76,0.06);
+    /* hero right */
+    .hero-right {}
+    .photo-wrap {
+      width: 220px; height: 220px;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 2px solid var(--border);
+      margin: 0 auto 2rem;
     }
-    .photo-ring img { width: 100%; height: 100%; object-fit: cover; display: block; }
-    .contact-list { list-style: none; margin-bottom: 2rem; display: flex; flex-direction: column; gap: 0.5rem; }
-    .contact-list li { font-size: 0.82rem; color: var(--muted); }
-    .contact-list a { color: var(--muted); text-decoration: none; }
-    .contact-list a:hover { color: var(--gold); }
-    .ci { display: inline-block; width: 1rem; color: var(--gold-md); font-size: 0.75rem; margin-right: 0.4rem; }
-    .stat-strip {
-      display: grid; grid-template-columns: repeat(3, 1fr);
-      gap: 1px; background: var(--gold-dim); border: 1px solid var(--gold-dim);
-    }
-    .stat-cell { background: var(--off-black); padding: 1.2rem 0.9rem; text-align: center; }
-    .stat-val {
-      display: block; font-family: var(--serif); font-size: 1.6rem;
-      font-weight: 600; color: var(--gold); line-height: 1; margin-bottom: 0.35rem;
-    }
-    .stat-lbl { font-size: 0.65rem; letter-spacing: 0.07em; text-transform: uppercase; color: var(--muted); line-height: 1.4; }
+    .photo-wrap img { width: 100%; height: 100%; object-fit: cover; display: block; }
 
-    /* SECTION LABEL */
+    .contact-block {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      padding: 1.25rem 1.5rem;
+      margin-bottom: 1px;
+    }
+    .contact-row {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 0.5rem 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 13.5px;
+    }
+    .contact-row:last-child { border-bottom: none; }
+    .contact-row a {
+      color: var(--text);
+      text-decoration: none;
+    }
+    .contact-row a:hover { color: var(--gold); text-decoration: underline; }
+    .contact-icon { color: var(--gold-dim); font-size: 13px; width: 16px; text-align: center; flex-shrink: 0; }
+
+    .stat-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      margin-top: 1px;
+    }
+    .stat {
+      background: var(--surface);
+      padding: 1.25rem 1rem;
+      text-align: center;
+    }
+    .stat-num {
+      display: block;
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: var(--gold);
+      line-height: 1;
+      margin-bottom: 0.4rem;
+      letter-spacing: -0.02em;
+    }
+    .stat-label {
+      font-size: 11px;
+      font-weight: 500;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      line-height: 1.4;
+    }
+
+    /* ── DIVIDER ── */
+    .divider {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 0;
+    }
+
+    /* ── SECTION HEADER ── */
+    .section-header {
+      padding: 4rem 4rem 2.5rem;
+      display: flex;
+      align-items: baseline;
+      gap: 1.5rem;
+    }
     .section-label {
-      display: flex; align-items: center; gap: 1rem;
-      font-size: 0.68rem; letter-spacing: 0.2em; text-transform: uppercase;
-      color: var(--gold); padding: 3.5rem 4rem 0;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--gold);
+      white-space: nowrap;
     }
-    .section-label::after { content: ''; flex: 1; height: 1px; background: var(--gold-dim); }
+    .section-rule { flex: 1; height: 1px; background: var(--border); }
 
-    /* ABOUT */
+    /* ── ABOUT ── */
     #about {
-      padding: 2.5rem 4rem 4rem;
-      display: grid; grid-template-columns: 280px 1fr;
-      gap: 5rem; border-bottom: 1px solid var(--gold-dim); align-items: start;
-    }
-    .about-headline {
-      font-family: var(--serif); font-size: clamp(1.6rem, 2.8vw, 2.2rem);
-      font-weight: 400; color: var(--white); line-height: 1.3; position: sticky; top: 6rem;
-    }
-    .about-headline em { color: var(--gold); font-style: italic; }
-    .about-body p { font-size: 0.95rem; color: var(--text); margin-bottom: 1rem; }
-    .about-body p:last-of-type { margin-bottom: 1.5rem; }
-    .tags { display: flex; flex-wrap: wrap; gap: 0.45rem; }
-    .tag-pill {
-      font-size: 0.65rem; letter-spacing: 0.08em; text-transform: uppercase;
-      padding: 0.3rem 0.85rem; border: 1px solid var(--gold-dim); color: var(--gold-md);
+      padding: 0 4rem 5rem;
+      display: grid;
+      grid-template-columns: 280px 1fr;
+      gap: 5rem;
+      align-items: start;
     }
 
-    /* CASE STUDIES */
+    .about-lead {
+      font-size: 20px;
+      font-weight: 600;
+      color: var(--white);
+      line-height: 1.4;
+      letter-spacing: -0.01em;
+      position: sticky;
+      top: 5rem;
+    }
+
+    .about-copy p {
+      font-size: 15.5px;
+      color: var(--text);
+      margin-bottom: 1.1rem;
+      line-height: 1.8;
+    }
+    .about-copy p:last-of-type { margin-bottom: 1.75rem; }
+
+    .pill-wrap { display: flex; flex-wrap: wrap; gap: 8px; }
+    .pill {
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--muted);
+      padding: 5px 12px;
+      border: 1px solid var(--border);
+      letter-spacing: 0.02em;
+    }
+
+    /* ── CASE STUDIES ── */
     #cases { padding: 0 4rem 6rem; }
-    .case {
-      margin-top: 2rem; border: 1px solid var(--gold-dim);
-      background: var(--card); overflow: hidden;
-    }
-    .case-head {
-      padding: 2.8rem 3rem; border-bottom: 1px solid var(--gold-dim);
-      display: grid; grid-template-columns: 72px 1fr; gap: 2rem; align-items: start;
-    }
-    .case-num {
-      font-family: var(--serif); font-size: 3.5rem; font-weight: 600;
-      color: var(--gold-dim); line-height: 1; padding-top: 0.2rem; user-select: none;
-    }
-    .case-kicker { font-size: 0.68rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold-md); margin-bottom: 0.55rem; }
-    h2 {
-      font-family: var(--serif); font-size: clamp(1.4rem, 2.5vw, 2rem);
-      font-weight: 600; color: var(--white); line-height: 1.25; margin-bottom: 0.6rem;
-    }
-    .case-sub { font-family: var(--serif); font-style: italic; font-size: 1rem; color: var(--muted); margin-bottom: 1.2rem; }
-    .tag-row { display: flex; flex-wrap: wrap; gap: 0.4rem; }
-    .chip { font-size: 0.62rem; letter-spacing: 0.07em; text-transform: uppercase; padding: 0.22rem 0.65rem; border: 1px solid var(--gold-dim); color: var(--muted); }
 
-    .case-body { display: grid; grid-template-columns: 1fr 1fr; }
-    .case-col { padding: 2.5rem 3rem; border-right: 1px solid var(--gold-dim); }
+    .case {
+      border: 1px solid var(--border);
+      background: var(--surface);
+      margin-bottom: 2px;
+    }
+
+    /* case top bar */
+    .case-bar {
+      display: flex;
+      align-items: stretch;
+      border-bottom: 1px solid var(--border);
+    }
+    .case-number {
+      width: 72px;
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--gold);
+      letter-spacing: 0.08em;
+      border-right: 1px solid var(--border);
+      padding: 1.5rem;
+    }
+    .case-intro {
+      padding: 1.75rem 2rem;
+      flex: 1;
+    }
+    .case-kicker {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--gold-dim);
+      margin-bottom: 0.5rem;
+    }
+    h2 {
+      font-size: clamp(1.15rem, 2vw, 1.45rem);
+      font-weight: 600;
+      color: var(--white);
+      line-height: 1.3;
+      letter-spacing: -0.01em;
+      margin-bottom: 0.5rem;
+    }
+    .case-sub {
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.6;
+      margin-bottom: 1rem;
+    }
+    .chip-row { display: flex; flex-wrap: wrap; gap: 6px; }
+    .chip {
+      font-size: 11px;
+      font-weight: 500;
+      color: var(--muted);
+      padding: 3px 10px;
+      border: 1px solid var(--border);
+      letter-spacing: 0.02em;
+    }
+
+    /* case body */
+    .case-body {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+    .case-col {
+      padding: 2rem 2rem;
+      border-right: 1px solid var(--border);
+    }
     .case-col:last-child { border-right: none; }
-    .case-full { grid-column: 1 / -1; padding: 2rem 3rem 2.5rem; border-top: 1px solid var(--gold-dim); }
+    .case-full {
+      grid-column: 1 / -1;
+      padding: 1.75rem 2rem 2rem;
+      border-top: 1px solid var(--border);
+    }
 
     .block { margin-bottom: 2rem; }
     .block:last-child { margin-bottom: 0; }
-    .blk-label {
-      display: flex; align-items: center; gap: 0.6rem;
-      font-size: 0.63rem; letter-spacing: 0.18em; text-transform: uppercase;
-      color: var(--gold); margin-bottom: 0.9rem;
-    }
-    .blk-label::before { content: ''; width: 1rem; height: 1px; background: var(--gold); flex-shrink: 0; }
-    .block p, .block li { font-size: 0.9rem; color: var(--text); line-height: 1.85; }
 
-    .arrow-list { list-style: none; }
-    .arrow-list li {
-      padding: 0.45rem 0 0.45rem 1.4rem; position: relative;
-      border-bottom: 1px solid rgba(58,46,20,0.35); font-size: 0.88rem;
+    .block-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.85rem;
+      padding-bottom: 0.6rem;
+      border-bottom: 1px solid var(--border);
     }
-    .arrow-list li:last-child { border-bottom: none; }
-    .arrow-list li::before { content: '→'; position: absolute; left: 0; color: var(--gold-md); top: 0.48rem; font-size: 0.75rem; }
 
-    .pull-quote { border-left: 2px solid var(--gold); background: var(--card-inner); padding: 1.4rem 1.8rem; margin: 1.2rem 0 1.4rem; }
-    .pull-quote p { font-family: var(--serif); font-style: italic; font-size: 1.05rem; color: var(--white); line-height: 1.6; }
-
-    .step-list { list-style: none; counter-reset: s; }
-    .step-list li {
-      counter-increment: s;
-      padding: 0.85rem 0 0.85rem 3rem; position: relative;
-      border-bottom: 1px solid rgba(58,46,20,0.35);
-      font-size: 0.88rem; color: var(--text); line-height: 1.85;
+    .block p {
+      font-size: 14.5px;
+      color: var(--text);
+      line-height: 1.8;
     }
-    .step-list li:last-child { border-bottom: none; }
-    .step-list li::before {
-      content: counter(s, decimal-leading-zero);
-      position: absolute; left: 0; top: 0.9rem;
-      font-family: var(--serif); font-size: 0.78rem; color: var(--gold-md); font-weight: 600;
-    }
-    .step-list li strong { color: var(--white); font-weight: 500; }
 
-    .results-grid {
-      display: grid; grid-template-columns: repeat(4, 1fr);
-      gap: 1px; background: var(--gold-dim); border: 1px solid var(--gold-dim); margin-top: 0.6rem;
+    .plain-list { list-style: none; }
+    .plain-list li {
+      font-size: 14.5px;
+      color: var(--text);
+      line-height: 1.75;
+      padding: 0.5rem 0 0.5rem 1.25rem;
+      border-bottom: 1px solid var(--border);
+      position: relative;
     }
-    .result { background: var(--off-black); padding: 1.2rem 1.4rem; }
-    .result-val { display: block; font-family: var(--serif); font-size: 1.8rem; font-weight: 600; color: var(--gold); line-height: 1; margin-bottom: 0.4rem; }
-    .result-desc { font-size: 0.72rem; letter-spacing: 0.05em; color: var(--muted); line-height: 1.5; text-transform: uppercase; }
+    .plain-list li:last-child { border-bottom: none; }
+    .plain-list li::before {
+      content: '—';
+      position: absolute;
+      left: 0;
+      color: var(--gold-dim);
+      font-size: 13px;
+    }
 
+    .quote {
+      border-left: 3px solid var(--gold);
+      padding: 1rem 1.25rem;
+      background: var(--card);
+      margin: 1rem 0 1.25rem;
+    }
+    .quote p {
+      font-size: 15px;
+      font-weight: 500;
+      color: var(--white);
+      line-height: 1.65;
+    }
+
+    .steps { list-style: none; counter-reset: step; }
+    .steps li {
+      counter-increment: step;
+      position: relative;
+      padding: 0.65rem 0 0.65rem 2.75rem;
+      border-bottom: 1px solid var(--border);
+      font-size: 14.5px;
+      color: var(--text);
+      line-height: 1.75;
+    }
+    .steps li:last-child { border-bottom: none; }
+    .steps li::before {
+      content: counter(step, decimal-leading-zero);
+      position: absolute;
+      left: 0;
+      top: 0.7rem;
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--gold-dim);
+      letter-spacing: 0.04em;
+    }
+    .steps li strong { color: var(--white); font-weight: 600; }
+
+    /* results */
+    .results {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      margin-top: 0.75rem;
+    }
+    .result {
+      background: var(--card);
+      padding: 1.25rem;
+    }
+    .result-val {
+      display: block;
+      font-size: 1.6rem;
+      font-weight: 600;
+      color: var(--gold);
+      line-height: 1;
+      margin-bottom: 0.5rem;
+      letter-spacing: -0.02em;
+    }
+    .result-desc {
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      line-height: 1.5;
+    }
+
+    /* insight */
     .insight {
-      background: linear-gradient(135deg, rgba(201,168,76,0.055) 0%, transparent 55%);
-      border: 1px solid var(--gold-dim); border-top: 2px solid var(--gold);
-      padding: 1.8rem 2.2rem; margin-top: 1.8rem;
+      margin-top: 1.5rem;
+      padding: 1.5rem;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--gold);
     }
-    .insight-label { font-size: 0.63rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.7rem; }
-    .insight p { font-family: var(--serif); font-size: 1rem; color: var(--text); line-height: 1.75; }
-    .insight strong { color: var(--white); font-style: italic; font-weight: 400; }
+    .insight-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.6rem;
+    }
+    .insight p {
+      font-size: 14.5px;
+      color: var(--text);
+      line-height: 1.8;
+    }
+    .insight strong { color: var(--white); font-weight: 600; }
 
-    /* FOOTER */
+    /* ── FOOTER ── */
     footer {
-      border-top: 1px solid var(--gold-dim); padding: 2.8rem 4rem;
-      display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1.5rem;
+      border-top: 1px solid var(--border);
+      padding: 2rem 4rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
     }
-    .foot-name { font-family: var(--serif); font-size: 1rem; color: var(--gold); }
-    .foot-links { display: flex; gap: 2rem; flex-wrap: wrap; }
-    .foot-links a { font-size: 0.78rem; color: var(--muted); text-decoration: none; }
-    .foot-links a:hover { color: var(--gold); }
-    .foot-note { font-size: 0.72rem; color: var(--muted); }
+    .foot-name { font-size: 14px; font-weight: 600; color: var(--white); }
+    .foot-links { display: flex; gap: 0; }
+    .foot-links a {
+      font-size: 13px;
+      color: var(--muted);
+      text-decoration: none;
+      padding: 0 1.25rem;
+      border-left: 1px solid var(--border);
+    }
+    .foot-links a:first-child { border-left: none; }
+    .foot-links a:hover { color: var(--white); text-decoration: underline; }
+    .foot-note { font-size: 12px; color: var(--muted); }
 
-    /* RESPONSIVE */
-    @media (max-width: 960px) {
-      nav { padding: 1rem 1.5rem; }
-      .nav-links { gap: 1.5rem; }
-      #hero { grid-template-columns: 1fr; padding: 7rem 1.5rem 3rem; gap: 2.5rem; }
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      nav { padding: 0 1.5rem; }
+      .nav-links a { padding: 0 0.75rem; font-size: 12px; }
+      #hero { grid-template-columns: 1fr; padding: 6rem 1.5rem 3rem; gap: 2.5rem; }
       .hero-right { order: -1; }
-      .photo-ring { width: 180px; height: 180px; }
-      .section-label { padding: 3rem 1.5rem 0; }
-      #about { grid-template-columns: 1fr; padding: 2rem 1.5rem 3rem; gap: 2rem; }
-      .about-headline { position: static; }
+      .photo-wrap { width: 160px; height: 160px; }
+      .section-header { padding: 3rem 1.5rem 2rem; }
+      #about { grid-template-columns: 1fr; padding: 0 1.5rem 3.5rem; gap: 2rem; }
+      .about-lead { position: static; font-size: 18px; }
       #cases { padding: 0 1.5rem 4rem; }
-      .case-head { padding: 2rem 1.5rem; grid-template-columns: 48px 1fr; gap: 1rem; }
-      .case-num { font-size: 2.4rem; }
+      .case-intro { padding: 1.25rem 1.5rem; }
       .case-body { grid-template-columns: 1fr; }
-      .case-col { padding: 2rem 1.5rem; border-right: none; border-bottom: 1px solid var(--gold-dim); }
+      .case-col { padding: 1.5rem; border-right: none; border-bottom: 1px solid var(--border); }
       .case-col:last-child { border-bottom: none; }
       .case-full { padding: 1.5rem; }
-      .results-grid { grid-template-columns: repeat(2, 1fr); }
-      footer { padding: 2rem 1.5rem; flex-direction: column; gap: 1rem; }
+      .results { grid-template-columns: repeat(2, 1fr); }
+      footer { padding: 1.5rem; flex-direction: column; align-items: flex-start; }
+      .foot-links a { padding: 0 1rem; }
+      .foot-links a:first-child { padding-left: 0; }
     }
 
-    /* ANIMATIONS */
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(20px); }
-      to   { opacity: 1; transform: translateY(0); }
+    @media (max-width: 480px) {
+      .nav-links { display: none; }
+      h1 { font-size: 1.9rem; }
     }
-    .hero-text > * { animation: fadeUp 0.65s ease both; }
-    .eyebrow   { animation-delay: 0.08s; }
-    h1         { animation-delay: 0.18s; }
-    .hero-desc { animation-delay: 0.28s; }
-    .cta-row   { animation-delay: 0.38s; }
-    .hero-right { animation: fadeUp 0.65s 0.22s ease both; }
   </style>
 </head>
 <body>
 
 <!-- NAV -->
 <nav>
-  <a class="nav-brand" href="#hero">Sruthy Meena</a>
+  <a class="nav-name" href="#hero">Sruthy Meena</a>
   <ul class="nav-links">
     <li><a href="#about">About</a></li>
     <li><a href="#cs1">Case Study 01</a></li>
@@ -303,57 +543,77 @@
 
 <!-- HERO -->
 <section id="hero">
-  <div class="hero-text">
-    <p class="eyebrow">Scrum Master &nbsp;·&nbsp; PSM I &nbsp;·&nbsp; AZ-900 &nbsp;·&nbsp; 8 Yrs Experience</p>
-    <h1>Connecting Engineering Teams<br>to <em>Business Outcomes</em></h1>
+  <div>
+    <p class="badge"><span class="badge-dot"></span> Open to Work &nbsp;·&nbsp; Remote-Ready</p>
+    <h1>Connecting Engineering Teams<br>to <span>Business Outcomes</span></h1>
     <p class="hero-desc">
       I help fintech and SaaS product teams ship on time, protect customer commitments,
       and give leadership the delivery confidence they need to plan with certainty.
     </p>
-    <div class="cta-row">
-      <a href="#cs1" class="btn btn-gold">Read Case Studies</a>
-      <a href="https://linkedin.com/in/sruthymeena" target="_blank" class="btn btn-outline">LinkedIn</a>
+    <div class="btn-row">
+      <a href="#cs1" class="btn btn-primary">Read Case Studies</a>
+      <a href="https://linkedin.com/in/sruthymeena" target="_blank" class="btn btn-secondary">LinkedIn ↗</a>
     </div>
   </div>
 
   <div class="hero-right">
-    <div class="photo-ring">
+    <div class="photo-wrap">
       <img src="photo.jpeg" alt="Sruthy Meena" />
     </div>
-    <ul class="contact-list">
-      <li><span class="ci">✉</span><a href="mailto:sruthy.meena@gmail.com">sruthy.meena@gmail.com</a></li>
-      <li><span class="ci">☎</span><a href="tel:+918921575651">+91 89215 75651</a></li>
-      <li><span class="ci">⌖</span>Thiruvananthapuram, Kerala &nbsp;·&nbsp; Remote-ready</li>
-      <li><span class="ci">in</span><a href="https://linkedin.com/in/sruthymeena" target="_blank">linkedin.com/in/sruthymeena</a></li>
-    </ul>
-    <div class="stat-strip">
-      <div class="stat-cell">
-        <span class="stat-val">95%</span>
-        <span class="stat-lbl">Release reliability achieved</span>
+
+    <div class="contact-block">
+      <div class="contact-row">
+        <span class="contact-icon">✉</span>
+        <a href="mailto:sruthy.meena@gmail.com">sruthy.meena@gmail.com</a>
       </div>
-      <div class="stat-cell">
-        <span class="stat-val">70–80%</span>
-        <span class="stat-lbl">Scope overruns eliminated</span>
+      <div class="contact-row">
+        <span class="contact-icon">☎</span>
+        <a href="tel:+918921575651">+91 89215 75651</a>
       </div>
-      <div class="stat-cell">
-        <span class="stat-val">~60%</span>
-        <span class="stat-lbl">Fewer release blockers</span>
+      <div class="contact-row">
+        <span class="contact-icon">⌖</span>
+        <span>Thiruvananthapuram, Kerala &nbsp;·&nbsp; Remote-ready</span>
+      </div>
+      <div class="contact-row">
+        <span class="contact-icon">in</span>
+        <a href="https://linkedin.com/in/sruthymeena" target="_blank">linkedin.com/in/sruthymeena ↗</a>
+      </div>
+    </div>
+
+    <div class="stat-row">
+      <div class="stat">
+        <span class="stat-num">95%</span>
+        <span class="stat-label">Release reliability</span>
+      </div>
+      <div class="stat">
+        <span class="stat-num">70–80%</span>
+        <span class="stat-label">Scope overruns cut</span>
+      </div>
+      <div class="stat">
+        <span class="stat-num">~60%</span>
+        <span class="stat-label">Fewer blockers</span>
       </div>
     </div>
   </div>
 </section>
 
+<hr class="divider" />
+
 <!-- ABOUT -->
-<div class="section-label">About</div>
+<div class="section-header">
+  <span class="section-label">About</span>
+  <div class="section-rule"></div>
+</div>
+
 <section id="about">
   <div>
-    <h2 class="about-headline">I don't just run&nbsp;meetings.<br><em>I protect launches.</em></h2>
+    <p class="about-lead">I don't just run meetings. I protect launches.</p>
   </div>
-  <div class="about-body">
+  <div class="about-copy">
     <p>
       I've led delivery across compliance-driven fintech and SaaS environments — simultaneously managing
-      a Frontend team of 4 and a Backend team of 9 across time zones, coordinating directly with Product
-      Owners and executive stakeholders to protect customer commitments and release timelines.
+      a Frontend team of 4 and a Backend team of 9 across time zones, while coordinating directly with
+      Product Owners and executive stakeholders to protect customer commitments and release timelines.
     </p>
     <p>
       My background is in QA and data systems. That means I catch delivery risks early —
@@ -362,35 +622,42 @@
     </p>
     <p>
       I work best where delivery accountability matters, distributed teams need a steady hand,
-      and the gap between engineering and business needs to be closed — not managed around.
-      The two case studies below show exactly how that works in practice.
+      and the gap between engineering and the business needs to be closed — not managed around.
     </p>
-    <div class="tags">
-      <span class="tag-pill">Fintech</span>
-      <span class="tag-pill">SaaS</span>
-      <span class="tag-pill">Distributed Teams</span>
-      <span class="tag-pill">ETL &amp; Data Systems</span>
-      <span class="tag-pill">Jira Admin</span>
-      <span class="tag-pill">SAFe</span>
-      <span class="tag-pill">Remote-First</span>
-      <span class="tag-pill">Snowflake · SQL</span>
+    <div class="pill-wrap">
+      <span class="pill">Fintech</span>
+      <span class="pill">SaaS</span>
+      <span class="pill">Distributed Teams</span>
+      <span class="pill">ETL &amp; Data Systems</span>
+      <span class="pill">Jira Admin</span>
+      <span class="pill">SAFe</span>
+      <span class="pill">Remote-First</span>
+      <span class="pill">Snowflake · SQL</span>
+      <span class="pill">PSM I</span>
+      <span class="pill">AZ-900</span>
     </div>
   </div>
 </section>
 
+<hr class="divider" />
+
 <!-- CASE STUDIES -->
-<div class="section-label">Case Studies</div>
+<div class="section-header">
+  <span class="section-label">Case Studies</span>
+  <div class="section-rule"></div>
+</div>
+
 <section id="cases">
 
   <!-- CS 01 -->
   <article class="case" id="cs1">
-    <div class="case-head">
-      <div class="case-num">01</div>
-      <div>
-        <p class="case-kicker">Release Reliability &nbsp;·&nbsp; Dependency Management &nbsp;·&nbsp; Stakeholder Confidence</p>
+    <div class="case-bar">
+      <div class="case-number">01</div>
+      <div class="case-intro">
+        <p class="case-kicker">Release Reliability · Dependency Management · Stakeholder Confidence</p>
         <h2>How I Protected Release Commitments When Unplanned Demand Was Silently Killing Delivery</h2>
         <p class="case-sub">Eliminating 70–80% of scope disruptions and restoring stakeholder trust in delivery forecasts — within two release cycles</p>
-        <div class="tag-row">
+        <div class="chip-row">
           <span class="chip">Mortgage ETL</span>
           <span class="chip">Snowflake · SQL</span>
           <span class="chip">Multi-team Dependencies</span>
@@ -404,13 +671,13 @@
       <div class="case-col">
 
         <div class="block">
-          <p class="blk-label">The Business Problem</p>
+          <p class="block-label">The Business Problem</p>
           <p>Customer-facing releases were slipping — not because the team was underperforming, but because an invisible upstream dependency was injecting unplanned work mid-cycle with no warning. The business was making commitments it couldn't keep. Each injection cost the team 1–2 days of committed delivery capacity — work already promised to stakeholders.</p>
         </div>
 
         <div class="block">
-          <p class="blk-label">What Leadership Was Seeing</p>
-          <ul class="arrow-list">
+          <p class="block-label">What Leadership Was Seeing</p>
+          <ul class="plain-list">
             <li>Release dates moving unpredictably cycle after cycle</li>
             <li>Stakeholder confidence in delivery forecasts eroding</li>
             <li>Planning becoming unreliable — commitments couldn't be trusted</li>
@@ -419,8 +686,8 @@
         </div>
 
         <div class="block">
-          <p class="blk-label">The Environment</p>
-          <p>A mortgage domain ETL platform on Snowflake and SQL. Three teams in the ecosystem: Backend (ETL/DB), Frontend (Portal), and Visualisation (Spotfire). The Spotfire team consumed ETL outputs for downstream reporting — and when they needed something urgently, they bypassed the process entirely and landed requests inside an already-committed cycle.</p>
+          <p class="block-label">The Environment</p>
+          <p>A mortgage domain ETL platform on Snowflake and SQL. Three teams in the ecosystem: Backend (ETL/DB), Frontend (Portal), and Visualisation (Spotfire). The Spotfire team consumed ETL outputs for downstream reporting — and when they needed something urgently, they bypassed the process and landed requests inside an already-committed cycle.</p>
         </div>
 
       </div>
@@ -428,16 +695,16 @@
       <div class="case-col">
 
         <div class="block">
-          <p class="blk-label">Diagnosis</p>
-          <div class="pull-quote">
+          <p class="block-label">Diagnosis</p>
+          <div class="quote">
             <p>"The delivery problem wasn't execution. It was that unmanaged external demand was being treated as a team performance issue."</p>
           </div>
-          <p>I analysed 5–6 cycles of committed vs. delivered data. The pattern was unambiguous — delivery slippage correlated directly with Spotfire request volume, not team capacity or story complexity. I presented the data to the PO to shift the conversation from blame to root cause.</p>
+          <p>I analysed 5–6 cycles of committed vs. delivered data. The pattern was clear — delivery slippage correlated directly with Spotfire request volume, not team capacity or story complexity. I presented the data to the PO to shift the conversation from blame to root cause.</p>
         </div>
 
         <div class="block">
-          <p class="blk-label">What I Did</p>
-          <ol class="step-list">
+          <p class="block-label">What I Did</p>
+          <ol class="steps">
             <li>Introduced a <strong>15–20% capacity buffer</strong> at planning time — validated by 5–6 cycles of actual demand data. Not slack; an honest acknowledgement of known demand reality.</li>
             <li>Established a <strong>weekly 30-minute cross-team sync</strong> with the Spotfire team before each planning cycle — converting unpredictable demand into visible, plannable demand.</li>
             <li>As the sync matured, the buffer shrank. The <strong>system self-corrected</strong> once visibility was in place — both mechanisms designed to make each other obsolete over time.</li>
@@ -447,27 +714,26 @@
       </div>
 
       <div class="case-full">
-        <div class="block">
-          <p class="blk-label">Business Results</p>
-          <div class="results-grid">
-            <div class="result">
-              <span class="result-val">70–80%</span>
-              <span class="result-desc">Reduction in unplanned scope disruption per release cycle</span>
-            </div>
-            <div class="result">
-              <span class="result-val">2 cycles</span>
-              <span class="result-desc">To stabilise delivery and restore forecast accuracy</span>
-            </div>
-            <div class="result">
-              <span class="result-val">↑</span>
-              <span class="result-desc">PO able to make external commitments with confidence</span>
-            </div>
-            <div class="result">
-              <span class="result-val">↓</span>
-              <span class="result-desc">Mid-cycle disruptions from cross-team dependencies significantly reduced</span>
-            </div>
+        <p class="block-label">Business Results</p>
+        <div class="results">
+          <div class="result">
+            <span class="result-val">70–80%</span>
+            <span class="result-desc">Unplanned scope disruption reduced per cycle</span>
+          </div>
+          <div class="result">
+            <span class="result-val">2 cycles</span>
+            <span class="result-desc">To stabilise delivery and restore forecast accuracy</span>
+          </div>
+          <div class="result">
+            <span class="result-val">↑</span>
+            <span class="result-desc">PO able to make external commitments with confidence</span>
+          </div>
+          <div class="result">
+            <span class="result-val">↓</span>
+            <span class="result-desc">Mid-cycle disruptions from cross-team dependencies</span>
           </div>
         </div>
+
         <div class="insight">
           <p class="insight-label">Key Insight</p>
           <p>Unplanned work is not always avoidable. <strong>Unmanaged dependencies are.</strong> A buffer alone becomes a crutch. A sync alone doesn't help if the team is already drowning when you install it. The sequence matters — control the symptom first, then fix the root cause structurally. One without the other fails.</p>
@@ -478,13 +744,13 @@
 
   <!-- CS 02 -->
   <article class="case" id="cs2" style="margin-top:2px;">
-    <div class="case-head">
-      <div class="case-num">02</div>
-      <div>
-        <p class="case-kicker">Strategic Delivery &nbsp;·&nbsp; Capacity Design &nbsp;·&nbsp; Stakeholder Alignment</p>
+    <div class="case-bar">
+      <div class="case-number">02</div>
+      <div class="case-intro">
+        <p class="case-kicker">Strategic Delivery · Capacity Design · Stakeholder Alignment</p>
         <h2>How I Delivered a Cost-Saving Azure Migration Without Losing Stakeholder Trust on Product Commitments</h2>
         <p class="case-sub">Running two competing priorities in parallel — and delivering both — by redesigning how capacity was structured, not by forcing a ranking</p>
-        <div class="tag-row">
+        <div class="chip-row">
           <span class="chip">Azure Migration</span>
           <span class="chip">Capacity Planning</span>
           <span class="chip">Portal · ETL</span>
@@ -498,13 +764,13 @@
       <div class="case-col">
 
         <div class="block">
-          <p class="blk-label">The Business Problem</p>
-          <p>Two legitimate, conflicting priorities arrived simultaneously on a team with limited capacity. The migration had a clear financial target — VM decommission and infrastructure cost reduction. Delay meant that cost kept running. Stakeholders had accumulated UI enhancement requests already deferred once. Another deferral carried real relationship and trust risk with the business. Ranking one over the other would solve a priority problem by creating a business one.</p>
+          <p class="block-label">The Business Problem</p>
+          <p>Two legitimate, conflicting priorities arrived simultaneously on a team with limited capacity. The migration had a clear financial target — VM decommission and infrastructure cost reduction. Delay meant that cost kept running. Stakeholders had accumulated UI enhancement requests already deferred once. Another deferral carried real relationship and trust risk. Ranking one over the other would solve a priority problem by creating a business one.</p>
         </div>
 
         <div class="block">
-          <p class="blk-label">The Competing Stakes</p>
-          <ul class="arrow-list">
+          <p class="block-label">The Competing Stakes</p>
+          <ul class="plain-list">
             <li>Azure migration: cost reduction target, PO-committed, two-month window</li>
             <li>UI enhancements: stakeholder trust at risk, already deferred once</li>
             <li>One senior developer — single dependency for both workstreams</li>
@@ -513,7 +779,7 @@
         </div>
 
         <div class="block">
-          <p class="blk-label">The Environment</p>
+          <p class="block-label">The Environment</p>
           <p>A mortgage platform transitioning from VM-based infrastructure to Azure. The migration was sequenced, focused, and non-interruptible. The UI work was exploratory and R&amp;D-heavy — non-linear, not easily plannable the same way. Two fundamentally different types of work requiring two different execution models.</p>
         </div>
 
@@ -522,51 +788,50 @@
       <div class="case-col">
 
         <div class="block">
-          <p class="blk-label">Diagnosis</p>
-          <div class="pull-quote">
+          <p class="block-label">Diagnosis</p>
+          <div class="quote">
             <p>"This wasn't a prioritisation problem. It was a capacity and execution model problem — and those require different solutions."</p>
           </div>
           <p>Running both workstreams through the same resource would deliver neither well. The real question was whether the execution model could be redesigned so both could proceed — not forced into a ranking that deferred a business problem rather than solving it.</p>
         </div>
 
         <div class="block">
-          <p class="blk-label">What I Did</p>
-          <ol class="step-list">
-            <li>Built a <strong>sprint-wise Azure migration roadmap spanning two months</strong> with dependencies and sequencing mapped — transforming strategic intent into a trackable, protected delivery commitment.</li>
+          <p class="block-label">What I Did</p>
+          <ol class="steps">
+            <li>Built a <strong>migration roadmap spanning two months</strong> with dependencies and sequencing mapped — transforming strategic intent into a trackable, protected delivery commitment.</li>
             <li>Shared the plan across stakeholders to create <strong>visibility and alignment</strong> — preventing migration from being deprioritised mid-execution when competing requests arrived.</li>
             <li>Identified a <strong>backend developer with untapped frontend capability</strong> and formally allocated them to UI enhancements — converting a single-threaded constraint into a two-track model.</li>
-            <li>Structured <strong>~50% senior developer support</strong> for the cross-skilled developer — enough for quality guidance without pulling migration focus. Sustainable, not a gamble.</li>
-            <li>Framed UI work as <strong>flexible and on-demand</strong> rather than sprint-committed — matching the delivery model to the actual nature of the work.</li>
+            <li>Structured <strong>~50% senior developer support</strong> for the cross-skilled developer — enough for quality guidance without pulling migration focus.</li>
+            <li>Framed UI work as <strong>flexible and on-demand</strong> — matching the delivery model to the actual nature of the work.</li>
           </ol>
         </div>
 
       </div>
 
       <div class="case-full">
-        <div class="block">
-          <p class="blk-label">Business Results</p>
-          <div class="results-grid">
-            <div class="result">
-              <span class="result-val">✓</span>
-              <span class="result-desc">Azure migration completed on schedule — VM costs eliminated as planned</span>
-            </div>
-            <div class="result">
-              <span class="result-val">✓</span>
-              <span class="result-desc">UI enhancements delivered in parallel — zero stakeholder deferrals</span>
-            </div>
-            <div class="result">
-              <span class="result-val">↑</span>
-              <span class="result-desc">Stakeholder trust maintained through transparent roadmap visibility</span>
-            </div>
-            <div class="result">
-              <span class="result-val">↓</span>
-              <span class="result-desc">Delivery risk reduced by designing parallel execution instead of forced ranking</span>
-            </div>
+        <p class="block-label">Business Results</p>
+        <div class="results">
+          <div class="result">
+            <span class="result-val">✓</span>
+            <span class="result-desc">Azure migration on schedule — VM costs eliminated as planned</span>
+          </div>
+          <div class="result">
+            <span class="result-val">✓</span>
+            <span class="result-desc">UI enhancements delivered in parallel — zero deferrals</span>
+          </div>
+          <div class="result">
+            <span class="result-val">↑</span>
+            <span class="result-desc">Stakeholder trust maintained through roadmap visibility</span>
+          </div>
+          <div class="result">
+            <span class="result-val">↓</span>
+            <span class="result-desc">Delivery risk reduced by designing parallel execution</span>
           </div>
         </div>
+
         <div class="insight">
           <p class="insight-label">Key Insight</p>
-          <p>Conflicting priorities are often <strong>a capacity problem wearing a prioritisation disguise.</strong> The instinct is to force a ranking — but ranking doesn't create capacity, it just defers one problem while solving another. The real question is: can the execution model be designed so both can proceed? Here, the answer was yes — by matching resource allocation to work type, cross-skilling deliberately, and treating exploratory work differently from sequenced delivery.</p>
+          <p>Conflicting priorities are often <strong>a capacity problem wearing a prioritisation disguise.</strong> The instinct is to force a ranking — but ranking doesn't create capacity, it just defers one problem while solving another. The real question is: can the execution model be redesigned so both can proceed? Here the answer was yes — by matching resource allocation to work type and treating exploratory work differently from sequenced delivery.</p>
         </div>
       </div>
     </div>
@@ -578,11 +843,11 @@
 <footer>
   <span class="foot-name">Sruthy Meena</span>
   <div class="foot-links">
-    <a href="https://linkedin.com/in/sruthymeena" target="_blank">LinkedIn</a>
+    <a href="https://linkedin.com/in/sruthymeena" target="_blank">LinkedIn ↗</a>
     <a href="mailto:sruthy.meena@gmail.com">sruthy.meena@gmail.com</a>
     <a href="tel:+918921575651">+91 89215 75651</a>
   </div>
-  <span class="foot-note">Open to global opportunities &nbsp;·&nbsp; Remote-ready</span>
+  <span class="foot-note">Open to global opportunities · Remote-ready</span>
 </footer>
 
 </body>
